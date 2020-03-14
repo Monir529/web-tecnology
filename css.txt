@@ -1,0 +1,258 @@
+registration:
+<!DOCTYPE html>
+<html>
+<head>
+<title>Log In</title>
+</head>
+<body>
+ <header>
+
+    <h1>Xcompany</h1>
+    <ul>
+
+    <li><a href="login.php">Login</a></li>
+    <li><a href="hello.html">Home</a></li>
+    <li><a href="registration.php">registration</a></li>
+</ul>
+
+</header>
+
+ 
+<form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+UserName <br>
+<input type="text" name="username" >
+<br>
+Password <br>
+<input type="text" name="password">
+ 
+<br><br>
+ 
+<input type="submit" name="login" value="Login">
+ 
+</form>  
+ 
+ 
+</body>
+</html>
+ 
+<?php
+if(isset($_POST['login']))
+{
+    $con=mysqli_connect("localhost","root","","xcompany");
+    if(!$con)
+    {
+        die("Connection Error: ".mysqli_connect_error()."<br/>");
+    }
+    //Retrieve Data
+ 
+    $password=$_POST['password'];
+    $username=$_POST['username'];
+    $sql="SELECT * FROM login WHERE username='$username' AND password='$password'";
+   
+    $result=mysqli_query($con,$sql);
+   
+    if(mysqli_num_rows($result)>0)
+    {
+        $row=mysqli_fetch_array($result);
+       
+        header("Location:bob.php");
+    }
+    else
+    {
+        echo "No data found.<br/>";
+    }
+ 
+
+login:
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Log In</title>
+</head>
+<body>
+ <header>
+
+    <h1>Xcompany</h1>
+    <ul>
+
+    <li><a href="login.php">Login</a></li>
+    <li><a href="hello.html">Home</a></li>
+    <li><a href="registration.php">registration</a></li>
+</ul>
+
+</header>
+
+ 
+<form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+UserName <br>
+<input type="text" name="username" >
+<br>
+Password <br>
+<input type="text" name="password">
+ 
+<br><br>
+ 
+<input type="submit" name="login" value="Login">
+ 
+</form>  
+ 
+ 
+</body>
+</html>
+ 
+<?php
+if(isset($_POST['login']))
+{
+    $con=mysqli_connect("localhost","root","","xcompany");
+    if(!$con)
+    {
+        die("Connection Error: ".mysqli_connect_error()."<br/>");
+    }
+    //Retrieve Data
+ 
+    $password=$_POST['password'];
+    $username=$_POST['username'];
+    $sql="SELECT * FROM login WHERE username='$username' AND password='$password'";
+   
+    $result=mysqli_query($con,$sql);
+   
+    if(mysqli_num_rows($result)>0)
+    {
+        $row=mysqli_fetch_array($result);
+       
+        header("Location:bob.php");
+    }
+    else
+    {
+        echo "No data found.<br/>";
+    }
+ 
+   
+mysqli_close($con);    
+}
+ 
+?>
+   
+mysqli_close($con);    
+}
+ 
+?>
+
+
+hello:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>company</title>
+
+</head>
+<body>
+<style>
+header{
+
+background-color: red;
+padding:15px;
+text-align: left;
+font-size: 25px;
+color:white;
+}
+.st{
+  float: right;
+font-size: 20px;
+color:white;
+}
+article{
+ text-align: center;
+  padding: 30px;
+}
+footer{
+   background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+</style>
+<header>
+
+	<h1>Xcompany</h1>
+	
+<div class="st"
+	<a href="login.php">Login</a>
+	<a href="hello.html">Home</a>
+	<a href="registration.php">registration</a>
+</ul>
+
+</header>
+<article>
+
+<h2>Welcome to Xcompany</h2>
+
+</article>	
+<footer>
+<p>copyright @ 2020<p>
+</footer>
+
+</body>
+</html>
+
+bob:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>BOB</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+header{
+
+background-color: red;
+padding:15px;
+text-align: left;
+font-size: 25px;
+color:white;
+}
+.st{
+  float: right;
+font-size: 20px;
+color:white;
+}
+article{
+ text-align: center;
+  padding: 30px;
+}
+footer{
+   background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+</style>
+<body>
+
+
+
+<header>
+  <h2>Xcompany</h2>
+
+
+
+<div class="st">
+
+  <a href="login.php">Login</a>
+  <a href="hello.html">Home</a>
+   <a href="registration.php">registration</a>
+</div>
+ 
+</header>
+  <article>
+    <h2>Welcome BOB</h2>
+  </article>
+<footer>
+  <p>Copyright@2020</p>
+</footer>
+
+</body>
+</html>
